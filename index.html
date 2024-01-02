@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Homepage</title>
+</head>
+<style>
+	
+	#header {
+		display: flex;
+		justify-content: space-around;
+		
+	}
+	#content{
+		width:100%;
+		display: flex;
+
+	}
+	#main{
+		overflow:scroll;
+		overflow-x: hidden;
+		scroll-behavior: smooth;
+		height: 700px;
+		padding: 15px;
+		width: 65%;
+		background-color:lightsteelblue;
+	}
+	#left {
+		width: 15%;
+		background-color:lightblue;
+	}
+	#right_main{
+		
+		text-align: center;
+		text-decoration: underline;
+		font-size: medium;
+		width: 20%;
+		background-color:#fcfcfc;
+	}
+	#interest_photo video{
+		padding: 10px;
+		display:grid;
+		width:200px;
+	}
+	.ads {
+		
+		position: fixed;
+		bottom: 0;
+		height: 90px;
+		width: 100%;
+		background-color: fade(#fbfbfb, 50%);
+	}
+	#pano {
+		background-color: rgba(237,237,237,0.6);
+	}
+	#pano img{
+		height: 90px;
+		width: 60%;
+		margin-left: 20%;
+		margin-right: 20%;
+	}
+	.ads #bg{
+		position:fixed;
+		height: 90px;
+		width: 100%;
+		
+	}
+#bg .close {
+		height: 26px;
+		border: none;
+		background:#fafafa;
+		margin-left: 252.5px;
+		color:blue;
+		position:fixed;
+		float: left;
+		vertical-align: middle;
+	}
+#bg .close {
+	cursor:pointer;
+}
+#bg .close img {
+	width: 25px;
+}
+	</style>
+<body>
+	<div id="header">
+		<?php include('include/header.php'); ?>
+	</div>
+	<div id="content">
+		<div id="left">
+			
+		</div>
+		<div id="main">
+			<h2>Place to visit</h2>
+			<?php 
+			include ('include/hquery_placetovisit.php');
+			?>
+			<hr>
+			<h2>Package tour</h2>
+			<?php 
+			include ('include/hquery_packagetour.php');
+			?>
+			<hr>
+			<h2>Hotels</h2>
+			<?php 
+			include ('include/hquery_hotel.php');
+			?>			
+			<hr>
+			<h2>Transportations</h2>
+			<?php 
+			include ('include/hquery_transportation.php');
+			?>			
+			<hr>
+			
+		</div>
+		<div id="right_main">
+			<div id="interest_photo">
+				<?php include('include/interest.php');?>
+			</div>
+			<div id="ads_video">
+				
+			</div>
+		</div>
+	</div>
+</div>
+	<div id="footer" style="height:80px;">
+		<?php include('include/footer.php');?>
+	</div>	
+	<div class="ads" id="ads">
+
+	<div id="bg">
+	<button class="close" onclick="document.getElementById('ads').style.display='none'" title="Close"><img src="images/close.png" /></button>
+
+	</div>
+			<div id="pano">
+			<img id="image" src="images/slide4.png" />
+<script>
+var imageSources = ["images/slide2.png", "images/slide3.png", "images/slide4.png", "images/slide5.gif"]
+var index = 0;
+setInterval (function(){
+  if (index === imageSources.length) {
+    index = 0;
+  }
+  document.getElementById("image").src = imageSources[index];
+  index++;
+} , 4000);
+</script>
+			</div>
+		</div>
+</body>
+</html>
